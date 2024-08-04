@@ -16,27 +16,21 @@ import java.net.URI;
 public class MonoExample01 {
 
     public static void main(String[] args) {
-        URI workTimeUri = UriComponentsBuilder.newInstance().scheme("http")
-                .host("worldtimeapi.org")
-                .port(80)
-                .path("/api/timezone/Asia/Seoul")
-                .build()
-                .encode()
-                .toUri();
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        WebClient webClient = WebClient.builder()
-                        .build();
-
-        Mono.just(webClient
+        Mono.just(WebClient.create()
                         .get()
-                        .uri(workTimeUri)
+                        .uri(UriComponentsBuilder.newInstance().scheme("http")
+                                .host("worldtimeapi.org")
+                                .port(80)
+                                .path("/api/timezone/Asia/Seoul")
+                                .build()
+                                .encode()
+                                .toUri())
                         .retrieve()
                         .bodyToMono(String.class)
                         .block())
                 .map(res -> {
                     try {
+                        ObjectMapper objectMapper = new ObjectMapper();
                         JsonNode jsonNode = objectMapper.readTree(res);
                         System.out.println(jsonNode.toString());
                         return jsonNode.path("datetime");
@@ -55,11 +49,5 @@ public class MonoExample01 {
                             System.out.println("onComplete emit ");
                         }
                 );
-
-
-
-
-
-
     }
 }

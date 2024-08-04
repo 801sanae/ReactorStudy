@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : init commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/flux/FluxExample01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/mono/MonoExample01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/appliaction.yml" afterDir="false" />
+    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : Mono just를 이용한 Http Req, Resp 에시.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/sequence/ColdSequenceExample01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/sequence/HotSequenceExample01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kmy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kmy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kmy/study/mono/MonoExample01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/mono/MonoExample01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +71,39 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.FluxExample01">
+  <component name="RunManager" selected="Application.HotSequenceExample01">
+    <configuration name="ColdSequenceExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kmy.study.sequence.ColdSequenceExample01" />
+      <module name="ReactorStudy.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kmy.study.sequence.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FluxExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kmy.study.flux.FluxExample01" />
       <module name="ReactorStudy.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.kmy.study.flux.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotSequenceExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kmy.study.sequence.HotSequenceExample01" />
+      <module name="ReactorStudy.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kmy.study.sequence.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,6 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HotSequenceExample01" />
+        <item itemvalue="Application.ColdSequenceExample01" />
         <item itemvalue="Application.FluxExample01" />
         <item itemvalue="Application.MonoExample01" />
         <item itemvalue="Application.Main" />
@@ -129,7 +155,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722772377480</updated>
-      <workItem from="1722772378983" duration="8441000" />
+      <workItem from="1722772378983" duration="10316000" />
     </task>
     <task id="LOCAL-00001" summary="add : init commit">
       <created>1722772552633</created>
@@ -138,7 +164,28 @@
       <option name="project" value="LOCAL" />
       <updated>1722772552633</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix : 원활한 테스트를 위한 Spring 프로젝트로 변경.">
+      <created>1722782968480</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722782968480</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add : Flux - just, fromArray, concat">
+      <created>1722783019459</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722783019459</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add : Mono just를 이용한 Http Req, Resp 에시.">
+      <created>1722783063081</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722783063081</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +217,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add : init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="add : init commit" />
+    <MESSAGE value="fix : 원활한 테스트를 위한 Spring 프로젝트로 변경." />
+    <MESSAGE value="add : Flux - just, fromArray, concat" />
+    <MESSAGE value="add : Mono just를 이용한 Http Req, Resp 에시." />
+    <option name="LAST_COMMIT_MESSAGE" value="add : Mono just를 이용한 Http Req, Resp 에시." />
   </component>
 </project>
