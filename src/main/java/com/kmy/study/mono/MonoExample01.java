@@ -7,8 +7,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 
-import java.net.URI;
-
 /*
  * Mono는 0개 또는 1개를 Emit
  * Http req / resp 사용하기 적합한 publisher 타입.
