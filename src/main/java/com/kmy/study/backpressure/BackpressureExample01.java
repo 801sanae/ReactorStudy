@@ -44,21 +44,39 @@ public class BackpressureExample01 {
 //        Thread.sleep(5L);
 
 //        #2 onBackpressureDrop
-        Flux
-                .interval(Duration.ofMillis(1L))
-                .onBackpressureDrop(dropped -> log.info("dropped :: {}", dropped)) // backpressure에 dropped 데이터를 파라미터로 전달받을 수 있다.
-                                                                                   // drop 된 데이터가 폐기되기전 처리를 할 수 있다.
-                                                                                   // 버퍼가 가득 찬 상태에서 버퍼가 비워질때까지 데이터를 drop한다.
-                .publishOn(Schedulers.parallel()) // 별도의 스레드 발생
+//        Flux
+//                .interval(Duration.ofMillis(1L))
+//                .onBackpressureDrop(dropped -> log.info("dropped :: {}", dropped)) // backpressure에 dropped 데이터를 파라미터로 전달받을 수 있다.
+//                                                                                   // drop 된 데이터가 폐기되기전 처리를 할 수 있다.
+//                                                                                   // 버퍼가 가득 찬 상태에서 버퍼가 비워질때까지 데이터를 drop한다.
+//                .publishOn(Schedulers.parallel()) // 별도의 스레드 발생
+//                .subscribe(data -> {
+//                    try {
+//                        Thread.sleep(5L);
+//                    } catch (InterruptedException e) {
+//                        throw new RuntimeException(e);
+//                    }
+////                    System.out.println("# onNext::: data::" + data);
+//                    log.info("# onNext::: data::{}" , data);
+//                });
+//        Thread.sleep(2000L);
+
+//        #3 onBackpressureLatest
+        Flux.interval(Duration.ofMillis(1L))
+                .onBackpressureLatest() // 버퍼가 가득 찼다가, 버퍼가 다시 비워지는 시간 동안
+                                        // Emit되는 데이터가 가장 최근에 emit한 데이터가 된 후,
+                                        // 다음 데이터가 emit하면 다시 폐기
+                                        // ^- 반복
+                .publishOn(Schedulers.parallel())
                 .subscribe(data -> {
-                    try {
+                    try{
                         Thread.sleep(5L);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-//                    System.out.println("# onNext::: data::" + data);
-                    log.info("# onNext::: data::{}" , data);
-                });
+                    }catch (InterruptedException e){}
+                    log.info("# onNext :: {}", data);
+                },
+                        error->log.error("# onError :: {}", error)
+                );
         Thread.sleep(2000L);
+
     }
 }

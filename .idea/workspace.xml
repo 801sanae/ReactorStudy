@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : backpressure 관련 추가.">
+    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : onBackpressureDrop 정책은 Buffer가 비워질떄까지 데이터를 drop하며, drop된 데이터를 처리할 수 있다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample01.java" afterDir="false" />
     </list>
@@ -135,6 +135,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReactorStudy [:BackpressureExample01.main()]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":BackpressureExample01.main()" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BackpressureExample01" />
@@ -153,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722772377480</updated>
-      <workItem from="1722772378983" duration="15140000" />
+      <workItem from="1722772378983" duration="15602000" />
     </task>
     <task id="LOCAL-00001" summary="add : init commit">
       <created>1722772552633</created>
@@ -197,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1722788008201</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add : onBackpressureDrop 정책은 Buffer가 비워질떄까지 데이터를 drop하며, drop된 데이터를 처리할 수 있다.">
+      <created>1722949800425</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722949800425</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +263,7 @@
     <MESSAGE value="add : Mono just를 이용한 Http Req, Resp 에시." />
     <MESSAGE value="add : cold, hot Sequences 간략 예시." />
     <MESSAGE value="add : backpressure 관련 추가." />
-    <option name="LAST_COMMIT_MESSAGE" value="add : backpressure 관련 추가." />
+    <MESSAGE value="add : onBackpressureDrop 정책은 Buffer가 비워질떄까지 데이터를 drop하며, drop된 데이터를 처리할 수 있다." />
+    <option name="LAST_COMMIT_MESSAGE" value="add : onBackpressureDrop 정책은 Buffer가 비워질떄까지 데이터를 drop하며, drop된 데이터를 처리할 수 있다." />
   </component>
 </project>
