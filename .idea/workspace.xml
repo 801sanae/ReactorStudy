@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_LATEST">
+    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_OLDEST">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/sink/SinkExample01.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample02.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample02.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.BackpressureExample02">
+  <component name="RunManager" selected="Application.SinkExample01">
     <configuration name="BackpressureExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kmy.study.backpressure.BackpressureExample01" />
       <module name="ReactorStudy.main" />
@@ -109,12 +109,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FluxExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.kmy.study.flux.FluxExample01" />
+    <configuration name="HotSequenceExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kmy.study.sequence.HotSequenceExample01" />
       <module name="ReactorStudy.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.kmy.study.flux.*" />
+          <option name="PATTERN" value="com.kmy.study.sequence.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,12 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotSequenceExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.kmy.study.sequence.HotSequenceExample01" />
+    <configuration name="SinkExample01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kmy.study.sink.SinkExample01" />
       <module name="ReactorStudy.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.kmy.study.sequence.*" />
+          <option name="PATTERN" value="com.kmy.study.sink.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SinkExample01" />
         <item itemvalue="Application.BackpressureExample02" />
         <item itemvalue="Application.BackpressureExample01" />
         <item itemvalue="Application.HotSequenceExample01" />
         <item itemvalue="Application.ColdSequenceExample01" />
-        <item itemvalue="Application.FluxExample01" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722772377480</updated>
-      <workItem from="1722772378983" duration="19594000" />
+      <workItem from="1722772378983" duration="20832000" />
     </task>
     <task id="LOCAL-00001" summary="add : init commit">
       <created>1722772552633</created>
@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1722954212758</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_OLDEST">
+      <created>1722954749048</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722954749048</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +287,7 @@
     <MESSAGE value="add : onBackpressureDrop 정책은 Buffer가 비워질떄까지 데이터를 drop하며, drop된 데이터를 처리할 수 있다." />
     <MESSAGE value="add : onBackpressureLatedst 정책은 최신 데이터라고 하는 데이터가 내 차례에 있으면, 내앞에 데이터를 폐기한다." />
     <MESSAGE value="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_LATEST" />
-    <option name="LAST_COMMIT_MESSAGE" value="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_LATEST" />
+    <MESSAGE value="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_OLDEST" />
+    <option name="LAST_COMMIT_MESSAGE" value="add : onBackpressureBuffer - BufferOverflowStrategy.DROP_OLDEST" />
   </component>
 </project>
