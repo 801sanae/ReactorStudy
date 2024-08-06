@@ -19,9 +19,17 @@ import java.time.Duration;
  *           - Pub이 DownStream으로 전달할 데이터가 버퍼에 가득찰때 버퍼 밖에 대기 중 데이터 중에서 먼저 emit된 데이터 부터 drop하는 전략?
  *      - LASTEST
  *           - Pub이 DownStream으로 전달할 데이터가 버퍼에 가득찰때 버퍼 밖에 대기 중 데이터 중 가장 최근에 emit된 데이터 부터 buffer를 채우는 전략
- *      - BUFFER
- *           - BUFFER DROP LASTEST
- *           - BUFFER DROP OLDEST
+ */
+/*
+    - onBackpressureError
+        백프레셔 상황이 발생하면 오류를 발생시킵니다.
+        OverflowException을 통해 스트림을 종료합니다.
+    - onBackpressureDrop
+        소비자가 처리할 수 없는 초과 항목들을 단순히 버립니다.
+        선택적으로 버려진 항목에 대한 콜백을 제공할 수 있습니다.
+    - onBackpressureLatest
+        가장 최근의 항목만 유지하고 나머지는 버립니다.
+        소비자가 처리할 준비가 되었을 때 최신 값만 전달합니다.
  */
 @Slf4j
 public class BackpressureExample01 {
