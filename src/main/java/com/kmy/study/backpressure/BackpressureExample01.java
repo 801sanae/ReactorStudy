@@ -36,7 +36,7 @@ public class BackpressureExample01 {
 //                    try {
 //                        Thread.sleep(5L);
 //                    } catch (InterruptedException e) {
-//                        throw new RuntimeException(e);
+////                        throw new RuntimeException(e);
 //                    }
 ////                    System.out.println("# onNext::: data::" + data);
 //                    log.info("# onNext::: data::{}" , data);
@@ -44,10 +44,11 @@ public class BackpressureExample01 {
 //        Thread.sleep(5L);
 
 //        #2 onBackpressureDrop
-//
         Flux
                 .interval(Duration.ofMillis(1L))
-                .onBackpressureDrop(dropped -> log.info("dropped :: {}, dropped"))
+                .onBackpressureDrop(dropped -> log.info("dropped :: {}", dropped)) // backpressure에 dropped 데이터를 파라미터로 전달받을 수 있다.
+                                                                                   // drop 된 데이터가 폐기되기전 처리를 할 수 있다.
+                                                                                   // 버퍼가 가득 찬 상태에서 버퍼가 비워질때까지 데이터를 drop한다.
                 .publishOn(Schedulers.parallel()) // 별도의 스레드 발생
                 .subscribe(data -> {
                     try {
@@ -58,6 +59,6 @@ public class BackpressureExample01 {
 //                    System.out.println("# onNext::: data::" + data);
                     log.info("# onNext::: data::{}" , data);
                 });
-        Thread.sleep(5L);
+        Thread.sleep(2000L);
     }
 }

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : cold, hot Sequences 간략 예시.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample01.java" afterDir="false" />
+    <list default="true" id="6d5a55dd-75ae-4958-83f2-ba55b90a9b5e" name="Changes" comment="add : backpressure 관련 추가.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kmy/study/mono/MonoExample01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/mono/MonoExample01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kmy/study/backpressure/BackpressureExample01.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +153,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722772377480</updated>
-      <workItem from="1722772378983" duration="13139000" />
+      <workItem from="1722772378983" duration="15140000" />
     </task>
     <task id="LOCAL-00001" summary="add : init commit">
       <created>1722772552633</created>
@@ -192,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1722785435790</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add : backpressure 관련 추가.">
+      <created>1722788008201</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722788008201</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +233,7 @@
     <MESSAGE value="add : Flux - just, fromArray, concat" />
     <MESSAGE value="add : Mono just를 이용한 Http Req, Resp 에시." />
     <MESSAGE value="add : cold, hot Sequences 간략 예시." />
-    <option name="LAST_COMMIT_MESSAGE" value="add : cold, hot Sequences 간략 예시." />
+    <MESSAGE value="add : backpressure 관련 추가." />
+    <option name="LAST_COMMIT_MESSAGE" value="add : backpressure 관련 추가." />
   </component>
 </project>
