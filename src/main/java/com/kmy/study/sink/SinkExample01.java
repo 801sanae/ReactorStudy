@@ -8,11 +8,10 @@ import reactor.core.scheduler.Schedulers;
 import java.util.stream.IntStream;
 
 /*
- * Sink는 명시적 Signal을 전송한다. ( doOnNext ,, )
- * Flux, Mono //
- * generate()
- * create()
- * 멀티 스레드 방식으로 signal을 보내며, 스레드 안정성을 보장한다.
+ * Sink는 프로그래밍 방식으로 명시적 Signal을 전송한다. ( doOnNext ,, )
+ * Flux , Mono
+ * 1. Operator // generate() create() -> 싱글스레드 기반
+ * 2. Sinks -> 멀티 스레드 방식으로 signal을 보내며, 스레드 안정성을 보장한다.
  */
 @Slf4j
 public class SinkExample01 {
