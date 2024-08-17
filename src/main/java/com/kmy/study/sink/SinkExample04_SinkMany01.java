@@ -6,7 +6,7 @@ import reactor.core.publisher.Sinks;
 
 /**
  * packageName    : com.kmy.study.sink
- * fileName       : SinkExample04_SinkMany
+ * fileName       : SinkExample04_SinkMany01
  * author         : kmy
  * date           : 8/17/24
  * description    :
@@ -16,12 +16,12 @@ import reactor.core.publisher.Sinks;
  * 8/17/24        kmy       최초 생성
  */
 @Slf4j
-public class SinkExample04_SinkMany {
+public class SinkExample04_SinkMany01 {
     public static void main(String[] args) throws InterruptedException{
         Sinks.Many<Integer> unicastSink = Sinks.many().unicast().onBackpressureBuffer();
 
         // Help building Sinks.Many that will broadcast signals to a single Subscriber
-        // UnicastSpec
+        // Sinks.UnicastSpec
         /*
          * UnicatProcessor <-- 얘는 단 하나의 subscriber에게 데이터를 emit 한다
          */
