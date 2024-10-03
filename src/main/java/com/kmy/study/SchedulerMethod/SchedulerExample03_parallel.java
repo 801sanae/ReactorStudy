@@ -1,4 +1,4 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -16,7 +16,9 @@ public class SchedulerExample03_parallel {
 
     public static void main(String[] args) throws InterruptedException{
         Flux.fromArray(new Integer[]{1,3,4,6,7,11,12,15,16,19,21})
-                .parallel(5)
+                // #1 cpu 논리적인 코어 수에 맞게 사전 골고루 분배
+                .parallel(4) // #1-1 parallelism – the number of parallel rails ( 물리적인 스레드의 개수 지정)
+                // #2 병렬 작업 수행 스레드 할당
                 .runOn(Schedulers.parallel())
                 .subscribe(data -> log.info("# onNext : {}", data*data));
 

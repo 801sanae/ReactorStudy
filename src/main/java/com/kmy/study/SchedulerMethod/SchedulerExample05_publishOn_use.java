@@ -1,4 +1,4 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -7,6 +7,7 @@ import reactor.core.scheduler.Schedulers;
 /*
  * publishOn, subscribleOn 안쓰면
  * main Thread에서 operator 체인의 각 단계별로 실행.
+ *
  */
 @Slf4j
 public class SchedulerExample05_publishOn_use {
@@ -15,6 +16,7 @@ public class SchedulerExample05_publishOn_use {
         Flux.fromArray(new Integer[]{1,3,4,6,7})
                 .doOnNext(data -> log.info("# doOnNext() fromArray: {}", data))
                 .publishOn(Schedulers.parallel())
+                // #1 publishOn 이하 체인의 각단계가 다른 스레드(main Thread가 아닌)에서 수행된다.
                 .doOnNext(data -> log.info("# doOnNext() filter: {}", data))
                 .map(data -> data*3)
                 .doOnNext(data -> log.info("# doOnNext() map: {}", data))

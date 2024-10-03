@@ -1,4 +1,4 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -9,9 +9,13 @@ public class SchedulerExample02_publishOn {
 
     public static void main(String[] args) throws InterruptedException{
         Flux.fromArray(new Integer[]{1,3,4,6,7})
+                // #2 flux emit date 처리(로그)
                 .doOnNext(data -> log.info("# doOnNext() : {}", data)) // #2 mainThread
-                .doOnSubscribe(subscription -> log.info("# doOnSubscrible")) //#2 mainThread
-                .publishOn(Schedulers.parallel()) // #1 DownStream의 실행 스레드를 변경한다. 별도의 스레드를 생성하여 수행.
+                // #1 구독시점 직후 확인
+                .doOnSubscribe(subscription -> log.info("# doOnSubscrible"))
+                // #3 DownStream의 실행 스레드를 변경한다.
+                .publishOn(Schedulers.parallel())
+                // #4 별도의 스레드를 생성하여 수행.
                 .subscribe(data -> log.info("# onNext : {}", data*data));
 
         Thread.sleep(500L);

@@ -1,4 +1,4 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -15,8 +15,11 @@ public class SchedulerExample01_subscribleOn {
     public static void main(String[] args) throws InterruptedException{
         Flux.fromArray(new Integer[]{1,3,4,6,7})
                 // #1 구독이 발생한 직후 실행될 스레드를 지정하는 operator
-                .subscribeOn(Schedulers.boundedElastic()) // #3 스케줄러 스레드 설정으로 원본 flux emit의 스레드가 메인스레드가 아니라 추가된 스레드로 실행됨.
-                .doOnNext(data -> log.info("# doOnNext() : {}", data)) // #2 원본 flux의 원본데이터 emit
+                // #1-1 스케줄러 스레드 설정으로 원본 flux emit의 스레드가 메인스레드가 아니라 추가된 스레드로 실행됨.
+                .subscribeOn(Schedulers.boundedElastic())
+                // #2 원본 flux의 원본데이터 emit
+                .doOnNext(data -> log.info("# doOnNext() : {}", data))
+                // #3 구독이 발생한 시점 직후 추가 처리 동작처리
                 .doOnSubscribe(subscription -> log.info("# doOnSubscrible"))
                 .subscribe(data -> log.info("# onNext : {}", data*data));
 

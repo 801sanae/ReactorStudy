@@ -1,11 +1,11 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
 /*
  * publishOn, subscribleOn 안쓰면
- * main Thread에서 operator 체인의 각 단계별로 실행.
+ * "main Thread"에서 operator 체인의 각 단계별로 실행.
  */
 @Slf4j
 public class SchedulerExample04_publishOn_subscribleOn_unuse {

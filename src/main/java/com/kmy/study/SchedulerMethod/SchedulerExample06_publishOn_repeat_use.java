@@ -1,4 +1,4 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -6,6 +6,7 @@ import reactor.core.scheduler.Schedulers;
 
 /*
  * publishOn 두번쨰 사용될떄마다 새로운 Thread 생성하여 사용.
+ * 한 개 이상의 publishOn은 새로운 Thread 생성된다.
  * main Thread에서 operator 체인의 각 단계별로 실행.
  */
 @Slf4j
@@ -13,10 +14,13 @@ public class SchedulerExample06_publishOn_repeat_use {
 
     public static void main(String[] args) throws InterruptedException{
         Flux.fromArray(new Integer[]{1,3,4,6,7})
+                // #1 main Thread에서 수행된다.
                 .doOnNext(data -> log.info("# doOnNext() fromArray: {}", data))
                 .publishOn(Schedulers.parallel())
+                // #2 새로운 스레드에서 수행
                 .doOnNext(data -> log.info("# doOnNext() filter: {}", data))
                 .publishOn(Schedulers.parallel())
+                // #3 새로운 스레드에서 chaining된 operator 수행
                 .map(data -> data*3)
                 .doOnNext(data -> log.info("# doOnNext() map: {}", data))
                 .subscribe(data -> log.info("# onNext : {}", data*data));

@@ -1,4 +1,4 @@
-package com.kmy.study.Scheduler;
+package com.kmy.study.SchedulerMethod;
 
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -13,10 +13,14 @@ public class SchedulerExample07_publishOn_subscribleOn_use {
 
     public static void main(String[] args) throws InterruptedException{
         Flux.fromArray(new Integer[]{1,3,4,6,7})
+                // #1 구독시점 직후 publisher가 데이터를 emit하기 전에 실행 스레드를 변경한다.
                 .subscribeOn(Schedulers.boundedElastic())
+                // #1-1 첫 구독시점 main Thread
+                .doOnSubscribe( data -> log.info("doOnSubscrible()!!!"))
                 .doOnNext(data -> log.info("# doOnNext() fromArray: {}", data))
                 .filter(data -> data > 3)
                 .doOnNext(data -> log.info("# doOnNext() filter: {}", data))
+                // #2 새로운 스레드에서 수행
                 .publishOn(Schedulers.parallel())
                 .map(data -> data*3)
                 .doOnNext(data -> log.info("# doOnNext() map: {}", data))
