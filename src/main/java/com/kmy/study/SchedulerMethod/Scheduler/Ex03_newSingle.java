@@ -41,7 +41,6 @@ public class Ex03_newSingle {
                  * daemon : main thread가 종료되면 종료 -> true
                  */
                 .publishOn(Schedulers.newSingle("new-single", true))
-                .publishOn(Schedulers.newB)
                 .filter(data -> data > 3)
                 .doOnNext(data -> log.info("# {} doOnNext filter : {}", taskName, data))
                 .map(data -> data* 10)
