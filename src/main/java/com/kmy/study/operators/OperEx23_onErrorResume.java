@@ -18,9 +18,11 @@ import java.util.List;
 public class OperEx23_onErrorResume {
 
     public static void main(String[] args) {
-        final String keyword = "DDD";
+        final String keyword = "DDD111111111";
+//        final String keyword = "DDD";
         getBooksFromCache(keyword)
                 .onErrorResume(error -> getBooksFromDatabase(keyword))
+                .doOnError(error -> log.error("doOnError :", error))
                 .subscribe(data -> log.info("# onNext ::{}", data.getBookName())
                 , error -> log.error("onError {}"));
 
@@ -46,3 +48,33 @@ public class OperEx23_onErrorResume {
         }
     }
 }
+
+/* 에러케이스일경우 doOnError, subscribe onError에 error Signal 전송된다.
+> Task :OperEx23_onErrorResume.main()
+15:42:38.035 [main] ERROR com.kmy.study.operators.OperEx23_onErrorResume -- doOnError :
+com.kmy.study.operators.OperEx23_onErrorResume$NoSuchBookException: no such book
+	at com.kmy.study.operators.OperEx23_onErrorResume.getBooksFromDatabase(OperEx23_onErrorResume.java:40)
+	at com.kmy.study.operators.OperEx23_onErrorResume.lambda$main$0(OperEx23_onErrorResume.java:23)
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:94)
+	at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2210)
+	at reactor.core.publisher.Operators.error(Operators.java:198)
+	at reactor.core.publisher.FluxError.subscribe(FluxError.java:43)
+	at reactor.core.publisher.Flux.subscribe(Flux.java:8773)
+	at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onComplete(FluxSwitchIfEmpty.java:82)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableSubscriber.onComplete(FluxFilterFuseable.java:171)
+	at reactor.core.publisher.FluxIterable$IterableSubscriptionConditional.fastPath(FluxIterable.java:755)
+	at reactor.core.publisher.FluxIterable$IterableSubscriptionConditional.request(FluxIterable.java:620)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableSubscriber.request(FluxFilterFuseable.java:191)
+	at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.set(Operators.java:2341)
+	at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onSubscribe(Operators.java:2215)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableSubscriber.onSubscribe(FluxFilterFuseable.java:87)
+	at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:179)
+	at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:83)
+	at reactor.core.publisher.Flux.subscribe(Flux.java:8773)
+	at reactor.core.publisher.Flux.subscribeWith(Flux.java:8894)
+	at reactor.core.publisher.Flux.subscribe(Flux.java:8739)
+	at reactor.core.publisher.Flux.subscribe(Flux.java:8663)
+	at reactor.core.publisher.Flux.subscribe(Flux.java:8633)
+	at com.kmy.study.operators.OperEx23_onErrorResume.main(OperEx23_onErrorResume.java:25)
+15:42:38.036 [main] ERROR com.kmy.study.operators.OperEx23_onErrorResume -- onError {}
+ */
